@@ -19,3 +19,12 @@
 ## Remove folder and its content
 
 `Remove-Item $env:LOCALAPPDATA\someDirectory\ -Recurse -Force`
+
+## Copy all files and folder with their content to another directory
+
+`Copy-Item -Path "C:\Source\*" -Destination "C:\Destination" -Recurse`
+
+## Create a symbolic link to an `.exe` file
+
+- Run cmd as administrator:
+  `mklink C:\Users\%USERNAME%\dirstat.exe C:\Users\%USERNAME%\Documents\GitHub\dirstat-project-size\dirstat.exe`
