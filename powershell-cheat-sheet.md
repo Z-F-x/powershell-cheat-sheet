@@ -28,3 +28,7 @@
 
 - Run cmd as administrator:
   `mklink C:\Users\%USERNAME%\dirstat.exe C:\Users\%USERNAME%\Documents\GitHub\dirstat-project-size\dirstat.exe`
+
+## Remove a folder with it's content
+
+`Remove-Item -Path \path\to\folder -Recurse -Force`
