@@ -39,3 +39,12 @@
 ## Remove a folder with it's content
 
 `Remove-Item -Path \path\to\folder -Recurse -Force`
+
+## Delete file
+
+`Remove-Item -Path \path\to\file.ext`
+
+### Aliases for deleting file
+
+     ```rm -Path "C:\path\to\file.txt"```
+     ```del "C:\path\to\file.txt"```
