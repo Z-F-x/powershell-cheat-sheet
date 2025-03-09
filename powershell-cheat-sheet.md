@@ -26,8 +26,15 @@
 
 ## Create a symbolic link to an `.exe` file
 
-- Run cmd as administrator:
-  `mklink C:\Users\%USERNAME%\dirstat.exe C:\Users\%USERNAME%\Documents\GitHub\dirstat-project-size\dirstat.exe`
+### Run cmd as administrator:
+
+#### This will create for a specific folder only
+
+`mklink C:\path\to\folderYouWantTheProgramToRunIn\executableProgram.exe C:\path\to\your\executableProgram.exe`
+
+#### Thiis will create it as a global available command
+
+`mklink C:\Windows\executableProgram.exe C:\path\to\your\executableProgram.exe`
 
 ## Remove a folder with it's content
 
