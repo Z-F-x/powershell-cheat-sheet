@@ -48,3 +48,16 @@
 
      ```rm -Path "C:\path\to\file.txt"```
      ```del "C:\path\to\file.txt"```
+
+## List all hardware connected disks
+
+`Get-Disk`
+
+## Inspect partitions on the disks
+
+`Get-Partition -DiskNumber 0`
+`Get-Partition -DiskNumber 1`
+
+### See flag options for Get-Partition:
+
+`Get-Help Get-Partition -Full`
