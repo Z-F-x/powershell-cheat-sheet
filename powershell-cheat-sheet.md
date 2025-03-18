@@ -1,5 +1,11 @@
 # PowerShell
 
+## Powershells dotfile location
+`C:\Users\YourUserName\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
+
+## I think it's different from
+$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
 ## Create new file in current directory (equivalent to `touch` on gnu/linux systems)
 
 `New-Item -Path "example.txt" -ItemType file`
@@ -61,3 +67,29 @@
 ### See flag options for Get-Partition:
 
 `Get-Help Get-Partition -Full`
+
+## Terminate all processes
+PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe
+```
+SUCCESS: The process "electron.exe" with PID 17400 has been terminated.
+SUCCESS: The process "electron.exe" with PID 29628 has been terminated.
+SUCCESS: The process "electron.exe" with PID 29252 has been terminated.
+SUCCESS: The process "electron.exe" with PID 28688 has been terminated.
+SUCCESS: The process "electron.exe" with PID 29672 has been terminated.
+```
+
+
+## Get list of process of specific type
+```Get-Process node```
+
+### Kill the task based on pid
+```Stop-Process -Id <PID>```
+
+
+### Stop all processes of type
+```Get-Process node | Stop-Process```
+
+### Confirm before stopping the process:
+
+```Get-Process node | ForEach-Object { $_; Read-Host "Stop this process? (Y/N)" | Where-Object { $_ -eq 'Y' } | ForEach-Object { $_.Kill() } }```
+
