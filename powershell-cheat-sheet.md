@@ -93,3 +93,36 @@ SUCCESS: The process "electron.exe" with PID 29672 has been terminated.
 
 ```Get-Process node | ForEach-Object { $_; Read-Host "Stop this process? (Y/N)" | Where-Object { $_ -eq 'Y' } | ForEach-Object { $_.Kill() } }```
 
+---
+
+### Add Environment Variable to Windows PATH
+
+#### Option 1: Temporarily (for current PowerShell session only)
+```powershell
+$env:Path += ";C:\msys64\mingw64\bin"
+```
+> Only lasts until you close the terminal session.
+
+#### Option 2: Permanently (User scope, no admin needed)
+```powershell
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\msys64\mingw64\bin", "User")
+```
+> Adds the path to your user environment variables permanently.
+
+#### Option 3: Permanently (System scope, requires Admin)
+```powershell
+Start-Process powershell -Verb runAs -ArgumentList {
+  $old = [Environment]::GetEnvironmentVariable("Path", "Machine")
+  $new = $old + ";C:\msys64\mingw64\bin"
+  [Environment]::SetEnvironmentVariable("Path", $new, "Machine")
+}
+```
+> Adds the path to the **system-wide** `Path`. Requires Admin.
+
+#### View All Environment Variables
+```powershell
+Get-ChildItem Env:
+```
+> Shows all environment variables in the current session.
+
+---
