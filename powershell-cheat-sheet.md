@@ -2,11 +2,7 @@
 
 ## Execution policies 
 If you are seeing errors like this in terminal: 
-``` 
-```
-```
 
-```
 ```
 npm i
 npm : File C:\nvm4w\nodejs\npm.ps1 cannot be loaded because running scripts is disabled on this system. For more inform
@@ -19,8 +15,6 @@ At line:1 char:1
 ```
 
 You need to set execution policy to:
-```
-```
 ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
 
 ## Powershells dotfile location
