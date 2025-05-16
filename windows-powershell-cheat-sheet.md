@@ -86,7 +86,10 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 `Get-Help Get-Partition -Full`
 
 ## Terminate all processes
-PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe
+```PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe```
+
+Example of expected output:
+
 ```
 SUCCESS: The process "electron.exe" with PID 17400 has been terminated.
 SUCCESS: The process "electron.exe" with PID 29628 has been terminated.
