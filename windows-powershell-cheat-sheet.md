@@ -146,3 +146,13 @@ Get-ChildItem Env:
 > Shows all environment variables in the current session.
 
 ---
+
+### Rename file
+#### Terse
+Rename-Item "old_filename.txt" "new_filename.txt"
+
+#### Verbose:
+Rename-Item -Path "old_filename.txt" -NewName "new_filename.txt"
+
+
+---
