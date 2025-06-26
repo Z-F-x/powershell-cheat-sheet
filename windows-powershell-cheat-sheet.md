@@ -154,5 +154,11 @@ Rename-Item "old_filename.txt" "new_filename.txt"
 #### Verbose:
 Rename-Item -Path "old_filename.txt" -NewName "new_filename.txt"
 
+## Output all files of specific extension from current directory and subdirectories (replace *.exe with your file extension).
+```
+Get-ChildItem -Path . -Recurse -Filter *.exe -File |
+    Select-Object -ExpandProperty FullName
+```
+
 
 ---
