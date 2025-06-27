@@ -55,7 +55,7 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 `mklink C:\path\to\folderYouWantTheProgramToRunIn\executableProgram.exe C:\path\to\your\executableProgram.exe`
 
-#### Thiis will create it as a global available command
+#### This will create it as a global available command
 
 `mklink C:\Windows\executableProgram.exe C:\path\to\your\executableProgram.exe`
 
@@ -69,8 +69,15 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 ### Aliases for deleting file
 
-     ```rm -Path "C:\path\to\file.txt"```
-     ```del "C:\path\to\file.txt"```
+ ```powershell
+ rm -Path "C:\path\to\file.txt"
+ ```
+
+ or
+
+ ```powershell
+ del "C:\path\to\file.txt"
+ ```
 
 ## List all hardware connected disks
 
@@ -89,7 +96,7 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 ```powershell
 taskkill /F /IM processName.exe
 ```
-Note:
+Note:\
 `/F`: Force\
 `/IM`: Image i.e., a snapshot of the program's executable file in memory.
 
