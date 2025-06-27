@@ -21,7 +21,19 @@ You need to set execution policy to:
 `C:\Users\YourUserName\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
 ## I think it's different from
-$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+`$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
+
+## powershell.config.json
+Either one of these:
+
+- 1. System wide config
+C:\Program Files\PowerShell\7\powershell.config.json\
+
+- 2. User specific config
+%USERPROFILE%\Documents\PowerShell\powershell.config.json\
+
+- 3. On my system it is here
+C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\powershell.config.json\ 
 
 ## Create new file in current directory (equivalent to `touch` on gnu/linux systems)
 
