@@ -85,11 +85,12 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 `Get-Help Get-Partition -Full`
 
-## Terminalte a specific process 
-```pws
+## Terminate a specific process 
+```powershell
 taskkill /F /IM processName.exe
 ```
-`/F`: Force
+Note:
+`/F`: Force\
 `/IM`: Image i.e., a snapshot of the program's executable file in memory.
 
 ## Terminate all processes
