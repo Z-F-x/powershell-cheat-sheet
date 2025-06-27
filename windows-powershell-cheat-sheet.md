@@ -85,6 +85,13 @@ $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 `Get-Help Get-Partition -Full`
 
+## Terminalte a specific process 
+```pws
+taskkill /F /IM processName.exe
+```
+`/F`: Force
+`/IM`: Image i.e., a snapshot of the program's executable file in memory.
+
 ## Terminate all processes
 ```PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe```
 
