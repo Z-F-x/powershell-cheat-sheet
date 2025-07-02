@@ -47,6 +47,9 @@ C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\pow
 
 `Remove-Item exampleFileName.txt`
 
+## Force remove a folder with all files and subfolder 
+`Remove-Item -Recurse -Force exampleFolderName`
+
 ## Check checksum and output it to terminal
 
 `(Get-FileHash "file.zip" -Algorithm SHA512).Hash`
