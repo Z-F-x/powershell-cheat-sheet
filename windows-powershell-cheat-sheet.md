@@ -1,7 +1,8 @@
 # PowerShell
 
-## Execution policies 
-If you are seeing errors like this in terminal: 
+## Execution policies
+
+If you are seeing errors like this in terminal:
 
 ```
 npm i
@@ -15,25 +16,46 @@ At line:1 char:1
 ```
 
 You need to set execution policy to:
-```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
 ## Powershells dotfile location
+
 `C:\Users\YourUserName\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
 ## I think it's different from
+
 `$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
 
 ## powershell.config.json
+
 Either one of these:
 
 - 1. System wide config
-C:\Program Files\PowerShell\7\powershell.config.json\
+     C:\Program Files\PowerShell\7\powershell.config.json\
 
 - 2. User specific config
-%USERPROFILE%\Documents\PowerShell\powershell.config.json\
+     %USERPROFILE%\Documents\PowerShell\powershell.config.json\
 
 - 3. On my system it is here
-C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\powershell.config.json\ 
+     C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64\_\_8wekyb3d8bbwe\powershell.config.json\
+
+## Output profile path location
+
+```powershell
+$PROFILE
+```
+
+Expected output: C:\Users\<yourUserName>\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+
+## Reload Powershell prifile (config file)
+
+```powershell
+. $PROFILE
+```
+
+## Comments
+
+Comments are written `# This is a comment`
 
 ## Create new file in current directory (equivalent to `touch` on gnu/linux systems)
 
@@ -47,7 +69,8 @@ C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\pow
 
 `Remove-Item exampleFileName.txt`
 
-## Force remove a folder with all files and subfolder 
+## Force remove a folder with all files and subfolder
+
 `Remove-Item -Recurse -Force exampleFolderName`
 
 ## Check checksum and output it to terminal
@@ -84,15 +107,15 @@ C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\pow
 
 ### Aliases for deleting file
 
- ```powershell
- rm -Path "C:\path\to\file.txt"
- ```
+```powershell
+rm -Path "C:\path\to\file.txt"
+```
 
- or
+or
 
- ```powershell
- del "C:\path\to\file.txt"
- ```
+```powershell
+del "C:\path\to\file.txt"
+```
 
 ## List all hardware connected disks
 
@@ -107,16 +130,19 @@ C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe\pow
 
 `Get-Help Get-Partition -Full`
 
-## Terminate a specific process 
+## Terminate a specific process
+
 ```powershell
 taskkill /F /IM processName.exe
 ```
+
 Note:\
 `/F`: Force\
 `/IM`: Image i.e., a snapshot of the program's executable file in memory.
 
 ## Terminate all processes
-```PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe```
+
+`PS C:\Users\ZFx\Documents\GitHub\tmp\scraperx-desktop> taskkill /F /IM electron.exe`
 
 Example of expected output:
 
@@ -128,38 +154,44 @@ SUCCESS: The process "electron.exe" with PID 28688 has been terminated.
 SUCCESS: The process "electron.exe" with PID 29672 has been terminated.
 ```
 
-
 ## Get list of process of specific type
-```Get-Process node```
+
+`Get-Process node`
 
 ### Kill the task based on pid
-```Stop-Process -Id <PID>```
 
+`Stop-Process -Id <PID>`
 
 ### Stop all processes of type
-```Get-Process node | Stop-Process```
+
+`Get-Process node | Stop-Process`
 
 ### Confirm before stopping the process:
 
-```Get-Process node | ForEach-Object { $_; Read-Host "Stop this process? (Y/N)" | Where-Object { $_ -eq 'Y' } | ForEach-Object { $_.Kill() } }```
+`Get-Process node | ForEach-Object { $_; Read-Host "Stop this process? (Y/N)" | Where-Object { $_ -eq 'Y' } | ForEach-Object { $_.Kill() } }`
 
 ---
 
 ### Add Environment Variable to Windows PATH
 
 #### Option 1: Temporarily (for current PowerShell session only)
+
 ```powershell
 $env:Path += ";C:\msys64\mingw64\bin"
 ```
+
 > Only lasts until you close the terminal session.
 
 #### Option 2: Permanently (User scope, no admin needed)
+
 ```powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\msys64\mingw64\bin", "User")
 ```
+
 > Adds the path to your user environment variables permanently.
 
 #### Option 3: Permanently (System scope, requires Admin)
+
 ```powershell
 Start-Process powershell -Verb runAs -ArgumentList {
   $old = [Environment]::GetEnvironmentVariable("Path", "Machine")
@@ -167,28 +199,34 @@ Start-Process powershell -Verb runAs -ArgumentList {
   [Environment]::SetEnvironmentVariable("Path", $new, "Machine")
 }
 ```
+
 > Adds the path to the **system-wide** `Path`. Requires Admin.
 
 #### View All Environment Variables
+
 ```powershell
 Get-ChildItem Env:
 ```
+
 > Shows all environment variables in the current session.
 
 ---
 
 ### Rename file
+
 #### Terse
+
 Rename-Item "old_filename.txt" "new_filename.txt"
 
 #### Verbose:
+
 Rename-Item -Path "old_filename.txt" -NewName "new_filename.txt"
 
-## Output all files of specific extension from current directory and subdirectories (replace *.exe with your file extension).
+## Output all files of specific extension from current directory and subdirectories (replace \*.exe with your file extension).
+
 ```
 Get-ChildItem -Path . -Recurse -Filter *.exe -File |
     Select-Object -ExpandProperty FullName
 ```
-
 
 ---
