@@ -230,3 +230,9 @@ Get-ChildItem -Path . -Recurse -Filter *.exe -File |
 ```
 
 ---
+
+## Output list of all running processes
+
+```powershell
+Get-Process | Sort-Object CPU -Descending | Out-File "$env:USERPROFILE\Desktop\running_processes.txt"
+```
