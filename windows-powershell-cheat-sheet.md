@@ -236,3 +236,9 @@ Get-ChildItem -Path . -Recurse -Filter *.exe -File |
 ```powershell
 Get-Process | Sort-Object CPU -Descending | Out-File "$env:USERPROFILE\Desktop\running_processes.txt"
 ```
+
+## Get list of system Environment Variables
+
+```powershell
+Get-ChildItem Env:
+```
